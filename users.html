@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        form.inline { display: inline; margin: 0; }
+        input[type="text"] { padding: 4px; }
+        .form-section { margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h2>Список пользователей</h2>
+
+    <!-- Поиск -->
+    <form method="get" action="{{ url_for('users') }}">
+        <input type="text" name="search" placeholder="Поиск по email" value="{{ search_query }}">
+        <button type="submit">Поиск</button>
+    </form>
+
+    <!-- Таблица -->
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Действия</th>
+        </tr>
+        {% for id, username in users %}
+        <tr>
+            <td>{{ id }}</td>
+            <td>{{ username }}</td>
+            <td>
+                <!-- Удалить -->
+                <form method="post" class="inline">
+                    <input type="hidden" name="user_id" value="{{ id }}">
+                    <input type="hidden" name="action" value="delete">
+                    <button type="submit" onclick="return confirm('Удалить пользователя {{ username }}?')">Удалить</button>
+                </form>
+
+                <!-- Обновить -->
+                <form method="post" class="inline">
+                    <input type="hidden" name="user_id" value="{{ id }}">
+                    <input type="hidden" name="action" value="update">
+                    <input type="text" name="new_email" placeholder="Новый email" required>
+                    <button type="submit">Обновить</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Добавить пользователя -->
+    <div class="form-section">
+        <h3>Добавить пользователя</h3>
+        <form method="post">
+            <input type="hidden" name="action" value="add">
+            <input type="text" name="email" placeholder="Email" required>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+</body>
+</html>
