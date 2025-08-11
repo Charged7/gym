@@ -1,0 +1,13 @@
+{% extends "data_head.html" %}
+{% include 'menu.html' %}
+
+{% block title %}Вхід{% endblock %}
+
+{% block content %}
+<div class="form-wrapper">
+    <div class="container">
+        <h2>Кабінет адміна</h2>
+        <a href="{{ url_for('users') }}" class="btn btn-primary">Таблиця користувачів</a>
+    </div>
+</div>
+{% endblock %}

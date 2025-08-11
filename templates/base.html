@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Elevix{% endblock %}</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_copy.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/users.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/trener-shablon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/logoanmt.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/anketa.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate-elements.css') }}">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Телефон -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css">
+
+    <!-- Дополнительные стили для отдельных страниц -->
+    {% block styles %}{% endblock %}
+</head>
+<body class="bg-light p-4">
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
+
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/users.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/geo.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/logoanmt.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/animation-scroll.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/chart.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/slider.js') }}" defer></script>
+
+</body>
+</html>

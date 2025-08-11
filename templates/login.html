@@ -1,0 +1,36 @@
+{% extends "data_head.html" %}
+{% include 'menu.html' %}
+
+{% block title %}Вхiд{% endblock %}
+{% block content %}
+
+
+
+<!-- <div class="d-flex justify-content-center align-items-center flex-direction-column" style="min-height: 80vh;"> -->
+<div class="form-wrapper">
+    <div class="container">
+        <h2>Вхiд</h2>
+        <form method="post" novalidate>
+            <div class="mt-5 mb-3">
+                <input name="gmail" value="{{ gmail }}" class="form-control {% if errors.get('gmail') %}is-invalid{% endif %}" placeholder="Email">
+                {% if errors.get('gmail') %}
+                    <div class="invalid-feedback">{{ errors.get('gmail') }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <input name="password" type="password" class="form-control {% if errors.get('password') %}is-invalid{% endif %}" placeholder="Пароль">
+                {% if errors.get('password') %}
+                    <div class="invalid-feedback">{{ errors.get('password') }}</div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Увiйти</button>
+        </form>
+
+        <p class="mt-2">Немає акаунта? <a href="{{ url_for('register') }}">Зареєструватись</a></p>
+        <p class="mt-2">Забули пароль? <a href="{{ url_for('reset_password_request') }}">Вiдновити пароль</a></p>
+    </div>
+</div>
+
+{% endblock %}
