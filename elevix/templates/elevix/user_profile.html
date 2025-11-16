@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Особистий кабінет{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Особистий кабінет {{ user.full_name }}!</h2>
+    <p>Email: {{ user.email }}</p>
+    <p>Телефон: {{ user.phone }}</p>
+    <p>Дата реєстрації: {{ user.date_joined }}</p>
+
+    <hr>
+
+  <a href="{% url 'logout' %}" class="btn btn-danger">Вийти</a>
+</div>
+{% endblock %}

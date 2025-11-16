@@ -1,0 +1,85 @@
+{% load static %}
+<div class="menu_wrap">
+    <div class="container">
+        <div class="section_info">
+            <div class="block-phone">
+                <p> +380 97 790 9797 </p>
+            </div>
+            <div class="block-timetable">
+                <p>Пн-Пт: <span>8:00-21:00</span></p>
+                <p>Сб: <span>8:00-19:00</span></p>
+                <p>Нд: <span>Вихідний</span></p>
+            </div>
+            <div class="block-messegers">
+                <p>
+                    <a href="index.html"> <i class="fab fa-telegram color-root"></i></a>
+                    <a href="wfie.html"> <i class="fab fa-instagram color-root"></i></a>
+                    <a href=""> <i class="fab fa-viber color-root"></i></a>
+                </p>
+            </div>
+        </div>
+
+        <div class="section_menu">
+            <div class="logo_position">
+                <img class="logo_name" src="{% static 'elevix/images/logoanmt2.svg' %}">
+            </div>
+            <div class="block_menu">
+                <a href="{% url 'index' %}" class="menu_item">
+                    Головна
+                </a>
+                <div class="menu_item block-dropdown-menu ">Послуги та ціни<span class=""> &#8595;</span>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="shablon.html?page=muika">Спортивний зал</a></li>
+                            <li><a href="shablon.html?page=vozk">Бокс ММА</a></li>
+                            <li><a href="shablon.html?page=chistka">Відпочинок</a></li>
+                            <li><a href="shablon.html?page=salon">Магазин</a></li>
+                            <li><a href="shablon.html?page=all">Тренери</a></li>
+                            <li><a href="shablon.html?page=all">Ціни</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="menu_item" href="contact.html">Контакти</a>
+            </div>
+            <div class="item_right">
+                <a href="{% url 'login' %}" class="btn_item">
+                    Увійти
+                </a>
+                <div class="burger-menu">
+                    <span class="burg-line"></span>
+                    <span class="burg-line"></span>
+                    <span class="burg-line"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="menu-right-side">
+    <div class="container">
+        <div class="menu_item-smal-size"><a href="{% url 'index' %}"> Головна</a></div>
+        <div class="menu_item-smal-size drop">Послуги
+            <span class="errow"> &#8595;</span>
+        </div>
+        <div class="dropdown-menu-small ">
+            <ul>
+                <li><a href="shablon.html?page=muika">Спортивний зал</a></li>
+                <li><a href="shablon.html?page=vozk">Бокс ММА</a></li>
+                <li><a href="shablon.html?page=chistka">Відпочинок</a></li>
+                <li><a href="shablon.html?page=salon">Магазин</a></li>
+                <li><a href="shablon.html?page=all">Тренери</a></li>
+                <li><a href="shablon.html?page=all">Ціни</a></li>
+            </ul>
+        </div>
+        <div class="menu_item-smal-size"><a href="contact.html">Контакти</a></div>
+        <div class="hr-line"></div>
+        <br>
+        <div class="menu_item-small-timetable">+38 097 790 79 97</div>
+        <div class="menu_item-small-timetable">Пн-Пт: <span>  8:00-21:00 </span></div>
+        <div class="menu_item-small-timetable">Сб: <span>8:00-19:00</span> </div>
+        <div class="menu_item-small-timetable">Нд: <span>Вихідний</span> </div>
+        <br>
+        <div class="hr-line"></div>
+    </div>
+</div>

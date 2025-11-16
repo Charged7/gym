@@ -1,0 +1,10 @@
+.ck.ck-editor__main {
+    background: #fff !important;       /* белый фон */
+    color: #000 !important;            /* чёрный текст */
+}
+.ck.ck-content {
+    min-height: 300px;
+    padding: 1em;
+    font-size: 15px;
+    line-height: 1.6;
+}

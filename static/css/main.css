@@ -1,0 +1,9 @@
+/* Глобальный стиль для логотипа сайта */
+.site-logo {
+    width: 100px;          /* ширина логотипа */
+    height: 100px;         /* высота логотипа */
+    border-radius: 50%;   /* делает круглым */
+    object-fit: cover;    /* обрезает изображение, если не квадрат */
+    display: inline-block;
+    vertical-align: middle;
+}

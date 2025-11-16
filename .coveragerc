@@ -1,0 +1,15 @@
+[run]
+source =
+    blog
+    home
+    polls
+branch = True
+parallel = False
+omit =
+    **/migrations/*
+    **/tests/*
+    */__init__.py
+
+[report]
+show_missing = True
+skip_covered = False

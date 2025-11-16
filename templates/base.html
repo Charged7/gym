@@ -1,0 +1,50 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Elevix{% endblock %}</title>
+
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="{% static 'elevix/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'elevix/css/logoanmt.css' %}">
+    <link rel="stylesheet" href="{% static 'elevix/css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'elevix/css/animate-elements.css' %}">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Телефон -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css">
+
+    <!-- Дополнительные стили для отдельных страниц -->
+    {% block styles %}{% endblock %}
+</head>
+
+<body class="bg-light p-4">
+
+    {% if messages %}
+        <div class="container mt-3">
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
+    <!-- JS -->
+    <script src="{% static 'elevix/js/register.js' %}"></script>
+    <script src="{% static 'elevix/js/users.js' %}"></script>
+    <script src="{% static 'elevix/js/geo.js' %}"></script>
+    <script src="{% static 'elevix/js/logoanmt.js' %}"></script>
+    <script src="{% static 'elevix/js/menu.js' %}" defer></script>
+    <script src="{% static 'elevix/js/animation-scroll.js' %}" defer></script>
+    <script src="{% static 'elevix/js/chart.js' %}" defer></script>
+    <script src="{% static 'elevix/js/slider.js' %}" defer></script>
+    <script src="{% static 'elevix/js/photo_edit_trener.js' %}" defer></script>
+
+</body>
+</html>

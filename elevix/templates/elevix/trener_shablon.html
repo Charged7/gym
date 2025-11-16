@@ -1,0 +1,54 @@
+{% extends 'elevix/data_head.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'elevix/menu.html' %}
+
+<section class="section-shablon-trener">
+    <div class="container container-flex">
+        <div class="block-shablon-trener">
+            <h1 id="trainer-name"></h1>
+            <p id="trainer-exp"></p>
+            <p id="trainer-cntnt"></p>
+            <span>Освіта</span>
+            <p id="trainer-graduate"></p>
+            <!-- <p id="trainer-graduate1"></p> -->
+            <span>Досвід роботи</span>
+            <p id="trainer-work"></p>
+            <p id="trainer-photo"></p>
+        </div>
+        <div class="image-shablon-trener">
+            <img id="trainer-img" />
+            <div class="btn-now cntnt-shablon">
+                <a href="technology.html" class="txt_tech">Приєднуйся зараз</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const trainerName = params.get("name");
+
+    fetch("{% static 'elevix/json/treners.json' %}")
+        .then(res => res.json())
+        .then(data => {
+            const trainer = data.find(t => t.name === trainerName);
+
+            if (trainer) {
+                document.getElementById("trainer-name").textContent = trainer.name;
+                document.getElementById("trainer-img").src = trainer.photo;
+                document.getElementById("trainer-exp").textContent = trainer.experience;
+                document.getElementById("trainer-cntnt").textContent = trainer.txtcntnt;
+                document.getElementById("trainer-graduate").textContent = trainer.txtgraduate;
+                // document.getElementById("trainer-graduate1").textContent = trainer.txtgraduate;
+                document.getElementById("trainer-work").textContent = trainer.txtwork;
+                document.getElementById("trainer-photo").textContent = trainer.txtphoto;
+            } 
+            // else {
+            //     document.body.innerHTML = "<h2>Тренера не знайдено</h2>";
+            // }
+        });
+</script>
+
+{% endblock %}

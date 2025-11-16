@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Реєстрацiя{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Реєстрацiя</h2>
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Зареєструватись</button>
+    </form>
+
+    <p class="mt-2">Вже є акаунт? <a href="{% url 'login' %}">Увiйти</a></p>
+</div>
+{% endblock %}

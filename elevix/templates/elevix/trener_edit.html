@@ -1,0 +1,73 @@
+{% extends "elevix/data_head.html" %}
+
+{% block title %}Кабінет тренера{% endblock %}
+
+{% block content %}
+{% include 'elevix/menu.html' %}
+
+<h2>Кабінет тренера</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+<section class="shablon-edit">
+    <div class="container">
+        <div class="block-trener-name">
+            <div class="item-name">Поліщук Дмитро Сергійович</div>
+            <a href="{% url 'index' %}" class="btn_item">
+                Повернутись назад
+            </a>
+        </div>
+        <br>
+        <div class="form-block">
+            <form class="form-edit-trener" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" name="full_name" class="inp" placeholder="" />
+                    <label class="placeholder">Як вас звати? ПІБ</label>
+                </div>
+                <div class="input-group">
+                    <input type="text" name="category" class="inp" placeholder="" />
+                    <label class="placeholder">Ваша категорія? тренер?</label>
+                </div>
+                <div class="input-group">
+                    <textarea name="main_text" class="inp" placeholder=""></textarea>
+                    <label class="placeholder">Опис тексту на основний профіль</label>
+                </div>
+                <div class="input-group input-checkbox">
+                    <input type="text" name="education1" class="inp" placeholder="" />
+                    <label class="placeholder">Ваша освіта 1?</label>
+                    <input type="checkbox">
+                </div>
+                <div class="input-group">
+                    <input type="text" name="education2" class="inp" placeholder="" />
+                    <label class="placeholder">Ваша освіта 2?</label>
+                    <input type="checkbox">
+                </div>
+                <div class="input-group">
+                    <input type="text" name="work1" class="inp" placeholder="" />
+                    <label class="placeholder">Ваш досвід роботи 1?</label>
+                    <input type="checkbox">
+                </div>
+                <div class="input-group">
+                    <input type="text" name="work2" class="inp" placeholder="" />
+                    <label class="placeholder">Ваш досвід роботи 2?</label>
+                    <input type="checkbox">
+                </div>
+                <div class="input-group">
+                    <input type="text" name="work3" class="inp" placeholder="" />
+                    <label class="placeholder">Ваш досвід роботи 3?</label>
+                    <input type="checkbox">
+                </div>
+                <label class="custom-file-button" for="photoInput">Додайте фото:</label>
+                <input type="file" name="photos" accept="image/*" multiple id="photoInput" class="input-photo">
+                <div id="preview"></div>
+
+                <br>
+                <button type="submit">Завантажити</button>
+            </form>
+        </div>
+    </div>
+</section> 
+
+{% endblock %}
