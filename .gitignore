@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 staticfiles/
+.env
+db.sqlite3
+media/
