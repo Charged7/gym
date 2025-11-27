@@ -1,0 +1,15 @@
+<!-- templates/includes/messages.html -->
+{% load static %}
+
+{% block content %}
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div>
+                    {{ message }}
+                    <button>×</button>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

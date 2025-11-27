@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Редагувати профіль - {{ user.get_full_name }}{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <!-- Хлібні крихти -->
+        <div>
+            <a href="{% url 'elevix:profile' %}">Назад до профілю</a>
+        </div>
+
+        <!-- Заголовок -->
+        <div>
+            <div>
+                <h1>Редагувати профіль</h1>
+                <p>Оновіть свою особисту інформацію</p>
+            </div>
+        </div>
+
+        <!-- Повідомлення -->
+        {% if messages %}
+            {% for message in messages %}
+                <div>
+                    <div>
+                        <span>{{ message }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Основна інформація -->
+            <div>
+                <h2>Основна інформація</h2>
+
+                <div>
+                    <!-- ПІБ -->
+                    <div>
+                        <div>
+                            <label for="id_last_name">Прізвище <span>*</span></label>
+                            <input
+                                type="text"
+                                id="id_last_name"
+                                name="last_name"
+                                value="{{ user.last_name }}"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <label for="id_first_name">Ім'я <span>*</span></label>
+                            <input
+                                type="text"
+                                id="id_first_name"
+                                name="first_name"
+                                value="{{ user.first_name }}"
+                                required
+                            >
+                        </div>
+                        <div>
+                            <label for="id_middle_name">По-батькові</label>
+                            <input
+                                type="text"
+                                id="id_middle_name"
+                                name="middle_name"
+                                value="{{ user.middle_name|default:'' }}"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Email (disabled) -->
+                    <div>
+                        <label for="id_email">Email</label>
+                        <input
+                            type="email"
+                            id="id_email"
+                            value="{{ user.email }}"
+                            disabled
+                        >
+                        <p>Email не можна змінити</p>
+                    </div>
+
+                    <!-- Телефон -->
+                    <div>
+                        <label for="id_phone">Телефон</label>
+                        <div>
+                            <input
+                                type="tel"
+                                id="id_phone"
+                                name="phone"
+                                value="{{ user.phone|default:'' }}"
+                                placeholder="+380501234567"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Вік та Стать -->
+                    <div>
+                        <div>
+                            <label for="id_age">Вік</label>
+                            <input
+                                type="number"
+                                id="id_age"
+                                name="age"
+                                value="{{ user.age|default:'' }}"
+                                min="14"
+                                max="120"
+                            >
+                        </div>
+                        <div>
+                            <label for="id_gender">Стать</label>
+                            <select id="id_gender" name="gender">
+                                <option value="">--- Оберіть ---</option>
+                                <option value="M" {% if user.gender == 'M' %}selected{% endif %}>Чоловік</option>
+                                <option value="F" {% if user.gender == 'F' %}selected{% endif %}>Жінка</option>
+                                <option value="O" {% if user.gender == 'O' %}selected{% endif %}>Інше</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Аватар -->
+            <div>
+                <h2>Аватар</h2>
+
+                <div>
+                    <!-- Поточний аватар -->
+                    <div>
+                        {% if user.avatar %}
+                            <img src="{{ user.avatar.url }}" alt="{{ user.get_full_name }}">
+                        {% else %}
+                            <span>{{ user.first_name.0 }}{{ user.last_name.0 }}</span>
+                        {% endif %}
+                    </div>
+
+                    <!-- Завантаження -->
+                    <div>
+                        <input
+                            type="file"
+                            id="id_avatar"
+                            name="avatar"
+                            accept="image/*"
+                        >
+                        <p>PNG, JPG до 5MB</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Про себе -->
+            <div>
+                <h2>Про себе</h2>
+
+                <textarea
+                    id="id_bio"
+                    name="bio"
+                    rows="4"
+                    placeholder="Розкажіть про себе..."
+                >{{ user.bio|default:'' }}</textarea>
+                <p>Максимум 500 символів</p>
+            </div>
+
+            <!-- Кнопки -->
+            <div>
+                <button type="submit">Зберегти зміни</button>
+                <a href="{% url 'elevix:profile' %}">Скасувати</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

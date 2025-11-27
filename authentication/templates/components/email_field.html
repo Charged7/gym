@@ -1,0 +1,23 @@
+<div>
+    <label for="{{ field_id }}">
+        {{ label }} {% if required %}*{% endif %}
+    </label>
+
+    <div>
+        <input
+            type="email"
+            id="{{ field_id }}"
+            name="{{ name }}"
+            value="{{ value|default:'' }}"
+            placeholder="example@gmail.com"
+            autocomplete="{{ autocomplete|default:'email' }}"
+            {% if required %}required{% endif %}
+        >
+    </div>
+
+    {% if error %}
+        <p>
+            {{ error }}
+        </p>
+    {% endif %}
+</div>

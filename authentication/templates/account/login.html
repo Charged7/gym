@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Вхід - Elevix{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <div>
+            <!-- Header -->
+            {% include 'components/auth_header.html' with icon='box-arrow-in-right' title='Вхід' subtitle='Увійдіть у свій обліковий запис' %}
+
+            <div>
+                <!-- Алерт з помилками -->
+                {% if form.non_field_errors %}
+                    {% include 'components/alert.html' with type='error' message=form.non_field_errors.0 %}
+                {% endif %}
+
+                <!-- Форма -->
+                <form method="post" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+
+                    <!-- Email -->
+                    {% include 'components/email_field.html' with field_id='id_login' name='login' label='Email' required=True autocomplete='email' value=form.login.value error=form.login.errors.0 %}
+
+                    <!-- Password -->
+                    {% include 'components/password_field.html' with field_id='id_password' name='password' label='Пароль' required=True autocomplete='current-password' error=form.password.errors.0 %}
+
+                    <!-- Remember me -->
+                    {% include 'components/checkbox_field.html' with field_id='id_remember' name='remember' label="Запам'ятати мене" %}
+
+                    <!-- Кнопка -->
+                    {% include 'components/submit_button.html' with text='Увійти' icon='box-arrow-in-right' %}
+                </form>
+
+                <!-- Забули пароль -->
+                <div>
+                    <a href="{% url 'account_reset_password' %}">
+                        Забули пароль?
+                    </a>
+                </div>
+
+                <!-- Розділювач -->
+                {% include 'components/divider.html' with text='Немає облікового запису?' %}
+
+                <!-- Посилання -->
+                <div>
+                    <a href="{% url 'account_signup' %}">
+                        Зареєструватися
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

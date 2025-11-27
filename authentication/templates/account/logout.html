@@ -1,0 +1,28 @@
+<!-- templates/account/logout.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Вихід{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <div>
+            <h2>Вихід</h2>
+            <p>Ви впевнені, що хочете вийти з облікового запису?</p>
+
+            <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                {% endif %}
+
+                <div>
+                    <button type="submit">Так, вийти</button>
+                    <a href="{% url 'index' %}">Скасувати</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

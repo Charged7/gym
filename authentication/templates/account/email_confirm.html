@@ -1,0 +1,34 @@
+<!-- templates/account/email_confirm.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Підтвердження Email{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <div>
+            {% if confirmation %}
+                <h2>Підтвердіть ваш Email</h2>
+
+                <p>Будь ласка, підтвердіть, що наступна адреса електронної пошти належить вам:</p>
+
+                <div>
+                    {{ confirmation.email_address.email }}
+                </div>
+
+                <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+                    {% csrf_token %}
+                    <button type="submit">Підтвердити Email</button>
+                </form>
+            {% else %}
+                <h2>Недійсне посилання</h2>
+
+                <p>Посилання для підтвердження недійсне або вже було використано.</p>
+
+                <a href="{% url 'account_email' %}">← Керування Email</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

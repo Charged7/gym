@@ -1,0 +1,40 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Elevix{% endblock %}</title>
+
+    {% load static %}
+
+    <!-- Main CSS -->
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'elevix/css/style.css' %}">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Телефон -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/css/intlTelInput.css">
+
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    {% include 'includes/menu.html' %}
+
+    {% include 'includes/messages.html' %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {# {% include 'includes/footer.html' %} #}
+
+    <!-- Phone -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.1/build/js/intlTelInput.min.js"></script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

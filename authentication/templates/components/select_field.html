@@ -1,0 +1,22 @@
+<div>
+    <label for="{{ field_id }}">
+        {{ label }}
+    </label>
+
+    <div>
+        {% if icon %}
+        {% endif %}
+
+        <select id="{{ field_id }}" name="{{ name }}">
+            <option value="">--- Оберіть ---</option>
+            <option value="M" {% if value == 'M' %}selected{% endif %}>Чоловік</option>
+            <option value="F" {% if value == 'F' %}selected{% endif %}>Жінка</option>
+            <option value="O" {% if value == 'O' %}selected{% endif %}>Інше</option>
+        </select>
+
+    </div>
+
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</div>

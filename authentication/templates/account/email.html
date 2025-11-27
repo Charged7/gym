@@ -1,0 +1,121 @@
+<!-- templates/account/email.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Керування Email{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <div>
+            <div>
+                <h2>Керування адресами електронної пошти</h2>
+                <p>Керуйте адресами електронної пошти для входу</p>
+            </div>
+
+            <div>
+                <p>Ви можете додати кілька адрес email. Основна адреса використовується для сповіщень.</p>
+            </div>
+
+            <!-- Alert with errors -->
+            {% include 'components/alert.html' with show=form.errors type='danger' title='Помилка!' message='Перевірте правильність введених даних.' %}
+
+            <!-- Email address list -->
+            <div>
+                <h5>Ваші адреси електронної пошти</h5>
+
+                {% if emailaddresses %}
+                    {% for emailaddress in emailaddresses %}
+                        <div>
+                            <div>
+                                <div>
+                                    {{ emailaddress.email }}
+                                </div>
+                                <div>
+                                    {% if emailaddress.primary %}
+                                        <span>Основна</span>
+                                    {% endif %}
+
+                                    {% if emailaddress.verified %}
+                                        <span>Підтверджена</span>
+                                    {% else %}
+                                        <span>Не підтверджена</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <div>
+                                {% if not emailaddress.verified %}
+                                    <form method="post" action="{% url 'account_email' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="action_send" value="1">
+                                        <input type="hidden" name="email" value="{{ emailaddress.email }}">
+                                        <button type="submit">Підтвердити</button>
+                                    </form>
+                                {% endif %}
+
+                                {% if not emailaddress.primary %}
+                                    <form method="post" action="{% url 'account_email' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="action_primary" value="1">
+                                        <input type="hidden" name="email" value="{{ emailaddress.email }}">
+                                        <button type="submit" {% if not emailaddress.verified %}disabled{% endif %}>
+                                            Зробити основною
+                                        </button>
+                                    </form>
+                                {% endif %}
+
+                                {% if not emailaddress.primary %}
+                                    <form method="post" action="{% url 'account_email' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="action_remove" value="1">
+                                        <input type="hidden" name="email" value="{{ emailaddress.email }}">
+                                        <button type="submit" onclick="return confirm('Ви впевнені, що хочете видалити цей email?')">
+                                            Видалити
+                                        </button>
+                                    </form>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div>
+                        <p>Немає доданих адрес електронної пошти</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <!-- Add new email -->
+            <div>
+                <h5>Додати нову адресу</h5>
+
+                <form method="post" action="{% url 'account_email' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="action_add" value="1">
+
+                    <div>
+                        <div>
+                            <label for="email">Адреса електронної пошти</label>
+                            <input type="email"
+                                   name="email"
+                                   id="email"
+                                   placeholder="new-email@example.com"
+                                   required>
+                            {% if form.email.errors %}
+                                <p>{{ form.email.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+
+                        <button type="submit">Додати email</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Back -->
+            <div>
+                <a href="{% url 'elevix:profile' %}">← Повернутися до профілю</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

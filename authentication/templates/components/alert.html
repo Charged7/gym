@@ -1,0 +1,15 @@
+<!-- templates/components/forms/alert.html -->
+{% if type == 'error' or type == 'danger' %}
+<div>
+    <span>{{ message }}</span>
+</div>
+{% elif type == 'success' %}
+<div>
+    <span>{{ message }}</span>
+</div>
+{% elif show %}
+<div>
+    {% if title %}<strong>{{ title }}</strong>{% endif %}
+    <span>{{ message }}</span>
+</div>
+{% endif %}

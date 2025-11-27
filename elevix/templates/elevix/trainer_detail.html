@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ trainer.get_full_name }} - Elevix{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+
+        <h1>{{ trainer.get_full_name }}</h1>
+
+        {% if trainer.photo %}
+            <img src="{{ trainer.photo.url }}"
+                 alt="{{ trainer.get_full_name }}"
+                 >
+        {% else %}
+            <div>
+                {{ trainer.first_name.0 }}{{ trainer.last_name.0 }}
+            </div>
+        {% endif %}
+
+        <div>
+            <h2>Інформація</h2>
+            <p><strong>Вік:</strong> {{ trainer.age }} років</p>
+            <p><strong>Стать:</strong> {{ trainer.get_gender_display }}</p>
+            <p><strong>Спеціалізація:</strong> {{ trainer.get_specialization_display }}</p>
+            <p><strong>Стаж:</strong> {{ trainer.experience }} років</p>
+        </div>
+
+        {% if trainer.description %}
+        <div>
+            <h2>Опис</h2>
+            <p>{{ trainer.description }}</p>
+        </div>
+        {% endif %}
+
+        {% if trainer.graduate %}
+        <div>
+            <h2>Освіта</h2>
+            <p>{{ trainer.graduate }}</p>
+        </div>
+        {% endif %}
+
+        {% if trainer.work_experience %}
+        <div>
+            <h2>Досвід роботи</h2>
+            <p>{{ trainer.work_experience }}</p>
+        </div>
+        {% endif %}
+
+        <a href="{% url 'elevix:trainers_list' %}">← Назад до списку</a>
+    </div>
+</section>
+{% endblock %}

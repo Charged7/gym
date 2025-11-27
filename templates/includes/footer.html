@@ -1,0 +1,59 @@
+<!-- templates/includes/footer.html -->
+{% load static %}
+
+{% block extra_css %}
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet">
+{% endblock %}
+
+<footer>
+    <div>
+        <div>
+
+            <div>
+                <h5>MyApp</h5>
+                <p>A modern platform for managing your data. Secure, fast, convenient.</p>
+
+                <div>
+                    <a href="#"><i></i></a>
+                    <a href="#"><i></i></a>
+                    <a href="#"><i></i></a>
+                    <a href="#"><i></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="{% url 'elevix:index' %}">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5>Contacts</h5>
+                <ul>
+                    <li>info@myapp.com</li>
+                    <li>+38 (XXX) XXX-XX-XX</li>
+                    <li>Khmelnytskyi, Ukraine</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div>
+            <div>
+                <p>&copy; 2025 MyApp. All rights reserved.</p>
+            </div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+        </div>
+
+    </div>
+</footer>
+

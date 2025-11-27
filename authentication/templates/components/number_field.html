@@ -1,0 +1,19 @@
+<div>
+    <label for="{{ field_id }}">
+        {{ label }}
+    </label>
+    <div>
+        <input
+            type="number"
+            id="{{ field_id }}"
+            name="{{ name }}"
+            value="{{ value|default:'' }}"
+            placeholder="{{ placeholder|default:'' }}"
+            {% if min %}min="{{ min }}"{% endif %}
+            {% if max %}max="{{ max }}"{% endif %}
+        >
+    </div>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</div>

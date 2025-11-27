@@ -1,0 +1,45 @@
+{% load static %}
+
+{% block content %}
+
+<section>
+    <div>
+        <h1>Наші тренери</h1>
+
+        <div>
+            {% for trainer in trainers %}
+            <div>
+                {% if trainer.photo %}
+                    <div>
+                        <img src="{{ trainer.photo.url }}"
+                             alt="{{ trainer.get_full_name }}">
+                    </div>
+                {% else %}
+                    <div>
+                        <div>
+                            <div>
+                                {{ trainer.first_name.0 }}{{ trainer.last_name.0 }}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <div>
+                    <h3>{{ trainer.get_full_name }}</h3>
+                    <p>{{ trainer.get_specialization_display }}</p>
+                    <p>Стаж: {{ trainer.experience }} років</p>
+                    <p>{{ trainer.description|truncatewords:20 }}</p>
+
+                    <a href="{% url 'elevix:trainer_detail' trainer.pk %}">
+                        Детальніше
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <p>Тренерів поки немає</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

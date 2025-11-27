@@ -1,0 +1,13 @@
+<!-- templates/components/forms/social_buttons.html.backup.html -->
+{% load socialaccount %}
+
+<div>
+    <a href="{% provider_login_url 'google' %}">
+        {{ google_text|default:"Login with Google" }}
+    </a>
+
+{#    <a href="{% provider_login_url 'github' %}" class="btn-social btn-github">#}
+{#        <i class="bi bi-github"></i>#}
+{#        {{ github_text|default:"Войти через GitHub" }}#}
+{#    </a>#}
+</div>

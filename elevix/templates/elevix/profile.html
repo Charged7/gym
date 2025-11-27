@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Особистий кабінет - {{ user.get_full_name }}{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <!-- Header з аватаром -->
+        <div>
+            <div>
+                <div>
+                    <!-- Аватар -->
+                    <div>
+                        {% if user.avatar %}
+                            <img src="{{ user.avatar.url }}" alt="{{ user.get_full_name }}">
+                        {% else %}
+                            <span>{{ user.first_name.0 }}{{ user.last_name.0 }}</span>
+                        {% endif %}
+                    </div>
+
+                    <!-- Перевірка чи користувач тренер -->
+                    {% if user.trainer_profile %}
+                    <div>Тренер</div>
+                    {% endif %}
+
+                    <!-- Інфо користувача -->
+                    <div>
+                        <h1>{{ user.get_full_name }}</h1>
+                        <p>{{ user.email }}</p>
+                    </div>
+
+                    <!-- Кнопка редагування -->
+                    <a href="{% url 'elevix:profile_edit' %}">Редагувати профіль</a>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <!-- Ліва колонка - Інформація -->
+            <div>
+                <!-- Особиста інформація -->
+                <div>
+                    <h2>Особиста інформація</h2>
+                    <div>
+                        <div>
+                            <span>{{ user.phone|default:"Не вказано" }}</span>
+                        </div>
+                        <div>
+                            <span>Вік: {{ user.age|default:"Не вказано" }}</span>
+                        </div>
+                        <div>
+                            <span>{{ user.get_gender_display|default:"Не вказано" }}</span>
+                        </div>
+                        <div>
+                            <span>Реєстрація: {{ user.date_joined|date:"d.m.Y" }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Статистика -->
+                <div>
+                    <h2>Статистика</h2>
+                    <div>
+                        <div>
+                            <span>Тренувань:</span>
+                            <span>0</span>
+                        </div>
+                        <div>
+                            <span>Годин:</span>
+                            <span>0</span>
+                        </div>
+                        <div>
+                            <span>Улюблений тренер:</span>
+                            <span>—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Вийти -->
+                <form action="{% url 'account_logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Вийти з профілю</button>
+                </form>
+            </div>
+
+            <!-- Права колонка - Контент -->
+            <div>
+                {% if user.trainer_profile %}
+                    <!-- ПРОФІЛЬ ТРЕНЕРА -->
+                    <div>
+                        <!-- Інформація про тренера -->
+                        <div>
+                            <h2>Профіль тренера</h2>
+                            <div>
+                                <div>
+                                    <p>Спеціалізація</p>
+                                    <p>{{ user.trainer_profile.get_specialization_display }}</p>
+                                </div>
+                                <div>
+                                    <p>Досвід роботи</p>
+                                    <p>{{ user.trainer_profile.experience }} років</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Опис тренера -->
+                        <div>
+                            <h3>Про мене</h3>
+                            <p>{{ user.trainer_profile.description|default:"Опис поки не додано" }}</p>
+                        </div>
+
+                        <!-- Мої клієнти -->
+                        <div>
+                            <div>
+                                <h3>Мої клієнти</h3>
+                                <span>0 клієнтів</span>
+                            </div>
+                            <p>Клієнтів поки немає</p>
+                        </div>
+
+                        <!-- Розклад -->
+                        <div>
+                            <h3>Мій розклад</h3>
+                            <p>Розклад ще не створено</p>
+                        </div>
+                    </div>
+                {% else %}
+                    <!-- ПРОФІЛЬ ЗВИЧАЙНОГО КОРИСТУВАЧА -->
+                    <div>
+                        <!-- Активне членство -->
+                        <div>
+                            <h2>Моє членство</h2>
+                            <div>
+                                <p>Статус</p>
+                                <p>Активне</p>
+                                <div>
+                                    <span>Дійсне до:</span>
+                                    <span>31.12.2025</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Мій тренер -->
+                        <div>
+                            <h3>Мій тренер</h3>
+                            <div>
+                                <p>У вас ще немає персонального тренера</p>
+                                <a href="#">Знайти тренера</a>
+                            </div>
+                        </div>
+
+                        <!-- Мої тренування -->
+                        <div>
+                            <div>
+                                <h3>Мої тренування</h3>
+                                <a href="#">Переглянути всі</a>
+                            </div>
+                            <p>У вас ще немає запланованих тренувань</p>
+                        </div>
+
+                        <!-- Досягнення -->
+                        <div>
+                            <h3>Мої досягнення</h3>
+                            <div>
+                                <div>
+                                    <p>Перше тренування</p>
+                                </div>
+                                <div>
+                                    <p>10 тренувань</p>
+                                </div>
+                                <div>
+                                    <p>Місяць активності</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

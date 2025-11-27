@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'elevix/css/anketa.css' %}">
+    <link rel="stylesheet" href="{% static 'elevix/css/trener_edit.css' %}">
+    <link rel="stylesheet" href="{% static 'elevix/css/trener-shablon.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'elevix/logo_anmt.html' %}
+
+<section class="section-header">
+    <div class="container">
+        <div class="block-header">
+            <div class="txt-title">
+                <p>
+                    <span>Тренуйся</span>
+                    <span>сильніше</span>
+                    <span>Досягай</span>
+                    <span>більше</span>
+                </p>
+            </div>
+            <div class="txt-under-title">
+                <span>Розпочніть тренування вже сьогодні.
+                    Зміни, вдоскональ та покращи своє здоров'я
+                </span>
+            </div>
+            <br>
+            <br>
+            <div class="btn-now">
+                <a href="{% url 'account_login' %}" class="txt_tech">Приєднуйся зараз</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section_service">
+    <div class="container">
+        <br><br>
+        <div class="block-header">
+            <div class="btn-animate-service">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <img src="{% static 'elevix/images/logoanmt2.svg' %}">
+            </div>
+            <div class="container-service">
+                <div class="service-item">
+                    <img class="container-service-img" src="{% static 'elevix/images/photo_zal.png' %}">
+                    <div class="service-img-content"><a href="shablon.html?page=muika">Спортивний зал</a></div>
+                </div>
+                <div class="service-item">
+                    <img class="container-service-img" src="{% static 'elevix/images/borz.jpg' %}">
+                    <div class="service-img-content"><a href="shablon.html?page=vozk">Бокс ММА</a></div>
+                </div>
+                <div class="service-item">
+                    <img class="container-service-img" src="{% static 'elevix/images/relax.jpeg' %}">
+                    <div class="service-img-content"><a href="shablon.html?page=chistka">Відпочинок</a></div>
+                </div>
+                <div class="service-item">
+                    <img class="container-service-img" src="{% static 'elevix/images/magazin.jpg' %}">
+                    <div class="service-img-content"><a href="shablon.html?page=salon">Магазин</a></div>
+                </div>
+                <div class="service-item">
+                    <img class="container-service-img" src="{% static 'elevix/images/personal.jpg' %}">
+                    <div class="service-img-content"><a href="shablon.html?page=all">Тренери</a></div>
+                </div>
+                <div class="service-item">
+                    <img class="container-service-img" src="{% static 'elevix/images/price.jpg' %}">
+                    <div class="service-img-content"><a href="shablon.html?page=vuizd">Ціни</a></div>
+                </div>
+            </div>
+            <div class="container-black"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-about-us">
+    <div class="block-about-us container">
+        <div class="block-info-about-us">
+            <h2 class="h2-element">Про наc</h2>
+            <p>Ми простір розвитку, сили та внутрішнього перезавантаження.
+                Наш зал створений для тих, хто хоче більше: більше витривалості, більше впевненості,
+                більше свободи у своєму тілі.
+                <br><br>
+                Працюємо з <span class="orange-content">2020 року.</span> Ми поєднали професійне обладнення, досвідену
+                команду тренерів та атмосферу.
+                <br>
+                Тренуйся, вдосконалюй, будуй та знаходь себе!
+                <br><br>
+                <span class="orange-content">Чекаємо саме на тебе</span>
+            </p>
+        </div>
+        <div class="block-content-about-us">
+            <div class="content-center">
+                <span> Сучасний спортивний зал</span>
+                <ul class="ul-animate">
+                    <li>Професійні тренажери для силових та кардіо тренувань</li>
+                    <li>Вільні ваги, зона кросфіту, TRX, гантелі до 50 кг</li>
+                    <li>Окрема зона для розминки та розтяжки</li>
+                    <li>Сучасне освітлення й вентиляція для максимального комфорту</li>
+                </ul>
+                <br>
+                <span> Бойові мистецтва</span>
+                <ul class="ul-animate">
+                    <li>Повноцінний ринг для спарингів</li>
+                    <li>Мішки різних типів для відпрацювання жорсткості удару</li>
+                    <li>Доступні як групові, так і персональні тренування</li>
+                    <li>Тренування проводяться з боксу та ММА, різні групи </li>
+                </ul>
+                <br>
+                <span> Зона відпочинку та відновлення</span>
+                <ul class="ul-animate">
+                    <li>Масажний кабінет з кваліфікованими спеціалістами</li>
+                    <li>Сауна — для детоксикації та мʼязового відновлення</li>
+                    <li>Невеликий басейн для відновлювального плавання</li>
+                </ul>
+                <br>
+                <span>Доступність вибору товару в магазині</span>
+                <ul class="ul-animate">
+                    <li>Широкий асортимент товарів на будь-який смак і потребу</li>
+                    <li>Продукти та аксесуари, підібрані відповідно до типу абонементу</li>
+                    <li>Висока якість спортивного харчування, одягу та інвентарю</li>
+                    <li>Регулярне оновлення асортименту та сезонні новинки</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <br><br><br>
+    <div class="carousel">
+        <div class="slider">
+            <img src="{% static 'elevix/images/borz.jpg' %}" alt="">
+            <img src="{% static 'elevix/images/personal.jpg' %}" alt="">
+            <img src="{% static 'elevix/images/photo_zal.png' %}" alt="">
+            <img src="{% static 'elevix/images/relax.jpeg' %}" alt="">
+            <img src="{% static 'elevix/images/boks.webp' %}" alt="">
+            <img src="{% static 'elevix/images/photozal1.jpg' %}" alt="">
+            <img src="{% static 'elevix/images/photozal2.webp' %}" alt="">
+            <img src="{% static 'elevix/images/photozal3.jpg' %}" alt="">
+
+            <img src="{% static 'elevix/images/borz.jpg' %}" alt="">
+            <img src="{% static 'elevix/images/personal.jpg' %}" alt="">
+            <img src="{% static 'elevix/images/photo_zal.png' %}" alt="">
+            <img src="{% static 'elevix/images/relax.jpeg' %}" alt="">
+            <img src="{% static 'elevix/images/boks.webp' %}" alt="">
+            <img src="{% static 'elevix/images/photozal1.jpg' %}" alt="">
+            <img src="{% static 'elevix/images/photozal2.webp' %}" alt="">
+            <img src="{% static 'elevix/images/photozal3.jpg' %}" alt="">
+        </div>
+    </div>
+
+</section>
+
+<section class="section-statistic">
+    <div class="container-grafic">
+        <br><br>
+        <p class="statistic">Статистика</p>
+        <div class="grafic">
+            <br><br>
+            <div class="cntnt_position_btn">
+                <div class="cntnt_btn">
+                    <button id="year_2020" onclick="doChart(this)">2020</button>
+                    <button id="year_2021" onclick="doChart(this)">2021</button>
+                    <button id="year_2022" onclick="doChart(this)">2022</button>
+                    <button id="year_2023" onclick="doChart(this)">2023</button>
+                    <button id="year_2024" onclick="doChart(this)">2024</button>
+                </div>
+            </div>
+
+            <br><br>
+            <div id="cnvs">
+                <div id="chrt_wrp">
+                    <div id="zal" class="state_wrp ">
+                        <div class="dscrpt"></div>
+                    </div>
+                    <div id="boks" class="state_wrp">
+                        <div class="dscrpt"></div>
+                    </div>
+                    <div id="mma" class="state_wrp">
+                        <div class="dscrpt"></div>
+                    </div>
+                    <div id="macaz" class="state_wrp">
+                        <div class="dscrpt"></div>
+                    </div>
+                    <div id="swim" class="state_wrp">
+                        <div class="dscrpt"></div>
+                    </div>
+                </div>
+            </div>
+
+            <input id="num" type="hidden" value="0" />
+        </div>
+    </div>
+</section>
+
+<section class="section-treners">
+    <div class="container">
+        <div class="block-treners">
+            <div class="slider-container">
+                <div id="slider-track" class="slider-track"></div>
+            </div>
+            <br>
+            <div class="btn-for-slide">
+                <button id="btn-prev">←</button>
+                <button id="btn-next">→</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include 'elevix/trainers_list.html' %}
+
+{% endblock %}
+
+{% block extra_js %}
+<!-- JS -->
+    <script src="{% static 'elevix/js/logoanmt.js' %}"></script>
+    <script src="{% static 'elevix/js/animation-scroll.js' %}" defer></script>
+    <script src="{% static 'elevix/js/chart.js' %}" defer></script>
+    <script src="{% static 'elevix/js/slider.js' %}" defer></script>
+    <script src="{% static 'elevix/js/photo_edit_trener.js' %}" defer></script>
+{% endblock %}

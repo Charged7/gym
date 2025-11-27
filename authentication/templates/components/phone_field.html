@@ -1,0 +1,18 @@
+<div>
+    <label for="{{ field_id }}">
+        {{ label }}
+    </label>
+    <div>
+        <input
+            type="tel"
+            id="{{ field_id }}"
+            name="{{ name }}"
+            value="{{ value|default:'' }}"
+            placeholder="+380501234567"
+            autocomplete="tel"
+        >
+    </div>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+</div>

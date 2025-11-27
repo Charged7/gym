@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Реєстрація - Elevix{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <div>
+            <!-- Header -->
+            {% include 'components/auth_header.html' with title='Реєстрація' subtitle='Створіть новий обліковий запис' %}
+
+            <div>
+                <!-- Алерт з помилками -->
+                {% if form.errors %}
+                    {% include 'components/alert.html' with type='error' message='Будь ласка, перевірте правильність введених даних' %}
+                {% endif %}
+
+                <!-- Форма -->
+                <form method="post" action="{% url 'account_signup' %}">
+                    {% csrf_token %}
+
+                    <!-- Email -->
+                    {% include 'components/email_field.html' with field_id='id_email' name='email' label='Email' required=True error=form.email.errors.0 value=form.email.value %}
+
+                    <!-- ПІБ в одному рядку -->
+                    <div>
+                        {% include 'components/text_field.html' with field_id='id_last_name' name='last_name' label='Прізвище' placeholder='Іваненко' required=True error=form.last_name.errors.0 value=form.last_name.value autocomplete='family-name' %}
+
+                        {% include 'components/text_field.html' with field_id='id_first_name' name='first_name' label="Ім'я" placeholder='Іван' required=True error=form.first_name.errors.0 value=form.first_name.value autocomplete='given-name' %}
+                    </div>
+
+                    <!-- По-батькові -->
+                    {% include 'components/text_field.html' with field_id='id_middle_name' name='middle_name' label='По-батькові' placeholder="Іванович (необов'язково)" error=form.middle_name.errors.0 value=form.middle_name.value autocomplete='additional-name' %}
+
+                    <!-- Телефон -->
+                    {% include 'components/phone_field.html' with field_id='id_phone' name='phone' label='Телефон' error=form.phone.errors.0 value=form.phone.value %}
+
+                    <!-- Вік та Стать -->
+                    <div>
+                        {% include 'components/number_field.html' with field_id='id_age' name='age' label='Вік' min=14 max=120 placeholder='25' error=form.age.errors.0 value=form.age.value %}
+
+                        {% include 'components/select_field.html' with field_id='id_gender' name='gender' label='Стать' error=form.gender.errors.0 value=form.gender.value %}
+                    </div>
+
+                    <!-- Паролі -->
+                    {% include 'components/password_field.html' with field_id='id_password1' name='password1' label='Пароль' required=True help_text='Мінімум 8 символів, не тільки цифри' error=form.password1.errors.0 autocomplete='new-password' %}
+
+                    {% include 'components/password_field.html' with field_id='id_password2' name='password2' label='Підтвердити пароль' required=True error=form.password2.errors.0 autocomplete='new-password' %}
+
+                    <!-- Кнопка -->
+                    {% include 'components/submit_button.html' with text='Зареєструватися' %}
+                </form>
+
+                <!-- Розділювач -->
+                {% include 'components/divider.html' with text='Вже є обліковий запис?' %}
+
+                <!-- Посилання -->
+                <div>
+                    <a href="{% url 'account_login' %}">
+                        Увійти
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
