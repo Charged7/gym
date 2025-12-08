@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="120px" height="140px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 120 140"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#9900CC;stroke-width:4;stroke-miterlimit:22.9256}
+    .fil0 {fill:none}
+   ]]>
+       #logo {
+    stroke-dasharray: 1700;
+    stroke-dashoffset: 1700;
+    animation: draw 2s ease-in-out infinite;
+    fill: transparent;
+    stroke: #FF6600;
+    stroke-width: 4;
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 1700;
+    }
+    50% {
+        stroke-dashoffset: 1340;
+    }
+    100% {
+        stroke-dashoffset: 1700;
+    }
+}
+  </style>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path id="logo" class="fil0 str0" d="M5.92 55.61l42.19 2.13c-3.03,-24.33 -12.93,-47.88 -6.8,-42.17 11.33,10.56 59.93,52.37 58.74,53.52 -41.24,39.91 -61.84,89.08 -52.7,9.34l-42.23 1.35 0.8 -24.17z"/>
+ </g>
+</svg>
