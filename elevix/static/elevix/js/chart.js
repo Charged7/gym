@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function doBut(index) {
     document.querySelectorAll(".open").forEach(el => el.classList.remove("open"));
-    const buttons = document.querySelectorAll("button");
+    const buttons = document.querySelectorAll(".cntnt_btn button");
     if (buttons[index]) {
       buttons[index].classList.add("open");
     }
@@ -70,12 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
           descs[i].textContent = value;
         }
       });
-    }, 100);
+    }, 50);
   }
 
   drawChart(0);
 
-  document.querySelectorAll("button").forEach(btn => {
+  document.querySelectorAll(".cntnt_btn button").forEach(btn => {
     btn.addEventListener("click", () => doChart(btn));
   });
 });

@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+
+
+
 {% load static %}
 
 {% block styles %}
@@ -7,9 +10,11 @@
     <link rel="stylesheet" href="{% static 'elevix/css/trener-shablon.css' %}">
 {% endblock %}
 
-{% block content %}
 
-{% include 'elevix/logo_anmt.html' %}
+{% block content %}
+ {% include 'elevix/logo_anmt.html' %}
+
+
 
 <section class="section-header">
     <div class="container">
@@ -38,10 +43,9 @@
 
 
 
-<section class="section_service">
+<section>
     <div class="container">
-        <br><br>
-        <div class="block-header">
+        <div class="block-service">
             <div class="btn-animate-service">
                 <span></span>
                 <span></span>
@@ -75,12 +79,11 @@
                     <div class="service-img-content"><a href="shablon.html?page=vuizd">Ціни</a></div>
                 </div>
             </div>
-            <div class="container-black"></div>
         </div>
     </div>
 </section>
 
-<section class="section-about-us">
+<section>
     <div class="block-about-us container">
         <div class="block-info-about-us">
             <h2 class="h2-element">Про наc</h2>
@@ -97,9 +100,9 @@
             </p>
         </div>
         <div class="block-content-about-us">
-            <div class="content-center">
+            <div>
                 <span> Сучасний спортивний зал</span>
-                <ul class="ul-animate">
+                <ul>
                     <li>Професійні тренажери для силових та кардіо тренувань</li>
                     <li>Вільні ваги, зона кросфіту, TRX, гантелі до 50 кг</li>
                     <li>Окрема зона для розминки та розтяжки</li>
@@ -107,7 +110,7 @@
                 </ul>
                 <br>
                 <span> Бойові мистецтва</span>
-                <ul class="ul-animate">
+                <ul>
                     <li>Повноцінний ринг для спарингів</li>
                     <li>Мішки різних типів для відпрацювання жорсткості удару</li>
                     <li>Доступні як групові, так і персональні тренування</li>
@@ -115,24 +118,22 @@
                 </ul>
                 <br>
                 <span> Зона відпочинку та відновлення</span>
-                <ul class="ul-animate">
+                <ul>
                     <li>Масажний кабінет з кваліфікованими спеціалістами</li>
                     <li>Сауна — для детоксикації та мʼязового відновлення</li>
                     <li>Невеликий басейн для відновлювального плавання</li>
                 </ul>
                 <br>
                 <span>Доступність вибору товару в магазині</span>
-                <ul class="ul-animate">
+                <ul>
                     <li>Широкий асортимент товарів на будь-який смак і потребу</li>
                     <li>Продукти та аксесуари, підібрані відповідно до типу абонементу</li>
                     <li>Висока якість спортивного харчування, одягу та інвентарю</li>
                     <li>Регулярне оновлення асортименту та сезонні новинки</li>
                 </ul>
             </div>
-
         </div>
     </div>
-    <br><br><br>
     <div class="carousel">
         <div class="slider">
             <img src="{% static 'elevix/images/borz.jpg' %}" alt="">
@@ -157,12 +158,12 @@
 
 </section>
 
-<section class="section-statistic">
+<section>
     <div class="container-grafic">
-        <br><br>
-        <p class="statistic">Статистика</p>
+         <div class="title-section">
+            <p>Статистика</p>
+        </div>
         <div class="grafic">
-            <br><br>
             <div class="cntnt_position_btn">
                 <div class="cntnt_btn">
                     <button id="year_2020" onclick="doChart(this)">2020</button>
@@ -199,30 +200,407 @@
     </div>
 </section>
 
-<section class="section-treners">
+
+<section>
     <div class="container">
-        <div class="block-treners">
-            <div class="slider-container">
-                <div id="slider-track" class="slider-track"></div>
+        <div class="block-why">
+            <div class="title-section">
+               <p> Чому нас обирають?</p>
             </div>
-            <br>
-            <div class="btn-for-slide">
-                <button id="btn-prev">←</button>
-                <button id="btn-next">→</button>
+            <div class="item-why">
+                <div class="item-card ">
+                    <h2>Професійна експертиза</h2>
+                     <p>
+                        Поєднуємо багаторічний досвід і сучасні технології, щоб створювати рішення високого рівня. Кожен проєкт проходить внутрішній контроль якості. Ви отримуєте результат, який стабільно працює та викликає довіру.
+                    </p>
+                </div>
+                <div class="item-card">
+                    <h2>Індивідуальний підхід</h2>
+                    <p>Ми детально вивчаємо ваші цілі, аудиторію та специфіку бізнесу. Стратегія підбирається під ваші задачі, а не під загальні шаблони. Завдяки цьому рішення виходять точними, ефективними та релевантними.</p>
+                </div>
+                 <div class="item-card">
+                    <h2>Швидкість та чіткі дедлайни</h2>
+                    <p>Ми оптимізували процеси так, щоб працювати без затримок та хаосу. Кожен етап має чіткий таймінг і прозорий план. Ви отримуєте готовий продукт вчасно, без стресу та зайвих уточнень.</p>
+                </div>
+                 <div class="item-card">
+                    <h2>Прозора комунікація</h2>
+                    <p>Під час роботи ми тримаємо вас у курсі всіх важливих рішень і змін. Ви завжди розумієте, на якому етапі проєкт і які наступні кроки. Це створює атмосферу довіри та легкого співробітництва.</p>
+                </div>
+                 <div class="item-card">
+                    <h2>Орієнтація на результат</h2>
+                    <p>Ми фокусуємось не на процесі заради процесу, а на кінцевому ефекті. Аналізуємо дані, тестуємо рішення та покращуємо їх. Для нас важливо, щоб продукт приносив реальну користь і вимірюваний результат.</p>
+                </div>
+                 <div class="item-card">
+                    <h2>Підтримка після запуску</h2>
+                    <p>Ми не зникаємо після досягнення вами  результату — ми залишаємося поруч, щоб допомогти з удосконаленням та розвитком. Ви завжди можете розраховувати на консультації та технічну підтримку.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-{% include 'elevix/trainers_list.html' %}
+
+<section>
+    <div class="container">
+        <div class="block-treners">
+            <div class="btn-news btn-prev">
+                <button>
+                    <img src="/static/elevix/images/arrow.svg" alt="">
+                </button>
+            </div>
+            <div class="slider-container">
+                <div id="slider-track" class="slider-track_cntnt">
+
+
+                     <div class='state-wrapper' data-id='$id'>
+                            <a href='$link' class='state-card'>
+                                <div class='state-card-inner'>
+                                    <div class='block-content-trener'>
+                                        <div class='trainer-block-img'>
+                                            <img src="/static/elevix/images/photozal1.jpg" alt="">
+                                         </div>
+                                         <span>Антоненко Микола Васильович</span>
+                                         <p>Тренер з Боксу</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <div class='state-wrapper' data-id='$id'>
+                            <a href='$link' class='state-card'>
+                                <div class='state-card-inner'>
+                                    <div class='block-content-trener'>
+                                        <div class='trainer-block-img'>
+                                            <img src="/static/elevix/images/photozal1.jpg" alt="">
+                                         </div>
+                                         <span>Антоненко Микола Васильович</span>
+                                         <p>Тренер з Боксу</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <div class='state-wrapper' data-id='$id'>
+                            <a href='$link' class='state-card'>
+                                <div class='state-card-inner'>
+                                    <div class='block-content-trener'>
+                                        <div class='trainer-block-img'>
+                                            <img src="/static/elevix/images/photozal1.jpg" alt="">
+                                         </div>
+                                         <span>Антоненко Микола Васильович</span>
+                                         <p>Тренер з Боксу</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <div class='state-wrapper' data-id='$id'>
+                            <a href='$link' class='state-card'>
+                                <div class='state-card-inner'>
+                                    <div class='block-content-trener'>
+                                        <div class='trainer-block-img'>
+                                            <img src="/static/elevix/images/photozal1.jpg" alt="">
+                                         </div>
+                                         <span>Антоненко Микола Васильович</span>
+                                         <p>Тренер з Боксу</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                </div>
+            </div>
+            <div class="btn-news btn-next">
+                <button>
+                     <img src="/static/elevix/images/arrow.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="feedbackSection">
+    <div class="container">
+        <div class="title-section">
+            <p>Залишені відгуки</p>
+        </div>
+
+        <div class="feedback-wrapper">
+            <div class="feedback-slider">
+                    <div class="feedbackContainer-wrapper">
+                        <div class="feedback-cntnt">
+                            <div>Антон Василенко</div>
+                           <span class="star">&#9733; &#9733; &#9733; &#9733;</span>
+                            <p> неймовірно чудовий заклад.Рекомендую</p>
+                        </div>
+                    </div>
+                     <div class="feedbackContainer-wrapper">
+                        <div class="feedback-cntnt">
+                            <div>Ангеліна Василенко</div>
+                           <span class="star">&#9733; &#9733; &#9733; &#9733;</span>
+                            <p> неймовірно чудовий заклад.Рекомендую</p>
+                        </div>
+                    </div>
+                     <div class="feedbackContainer-wrapper">
+                        <div class="feedback-cntnt">
+                            <div>Макар Василенко</div>
+                           <span class="star">&#9733; &#9733; &#9733; &#9733;</span>
+                            <p> неймовірно чудовий заклад. fewwfefewРекомендую</p>
+                        </div>
+                    </div>
+                    <div class="feedbackContainer-wrapper">
+                        <div class="feedback-cntnt">
+                            <div>Вікторія Василенко</div>
+                           <span class="star">&#9733; &#9733; &#9733; &#9733;</span>
+                            <p> неймовірно чудовий заклад.Рекомендую</p>
+                        </div>
+                    </div>
+                     <div class="feedbackContainer-wrapper">
+                        <div class="feedback-cntnt">
+                            <div>Вероніка Василенко</div>
+                           <span class="star">&#9733; &#9733; &#9733; &#9733;</span>
+                            <p> неймовірно чудовий заклад.Рекомендую</p>
+                        </div>
+                    </div>
+                     <div class="feedbackContainer-wrapper">
+                        <div class="feedback-cntnt">
+                            <div>Степан Василенко</div>
+                           <span class="star">&#9733; &#9733; &#9733; &#9733;</span>
+                            <p> неймовірно чудовий заклад.Рекомендую</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="btn-details">
+            <a href="#">Переглянути всі</a>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        <div class="block-questions">
+            <div class="block-info-questions">
+                <h2>Поширені <br>Запитання</h2>
+                <p>Не знайшли відповіді? <br> Ми з радістю відповімо Вам <br>Пиши або телефону!</p>
+                <div>Написати</div>
+                <span>+38 068 982 0943</span>
+            </div>
+            <div class="block-accordions">
+                    <div class="accordion">
+                      <details class="accordion-details">
+                        <summary class="accordion-summary">
+                          <span>Питання 1</span>
+                        </summary>
+                      </details>
+                      <div class="accordion-content">
+                        <div class="accordion-body">
+                          <p>відповідь на питання 1 в розгортому вигляді</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion">
+                      <details class="accordion-details">
+                        <summary class="accordion-summary">
+                          <span >Питання 2</span>
+                        </summary>
+                      </details>
+                      <div class="accordion-content">
+                        <div class="accordion-body">
+                          <p>Дивимось питання 2</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion">
+                      <details class="accordion-details">
+                        <summary class="accordion-summary">
+                          <span >Питання 3</span>
+                        </summary>
+                      </details>
+                      <div class="accordion-content">
+                        <div class="accordion-body">
+                          <p>дивимось приклад питання 3, як воно реалізоване </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion">
+                      <details class="accordion-details">
+                        <summary class="accordion-summary">
+                          <span >Питання 4</span>
+                        </summary>
+                      </details>
+                      <div class="accordion-content">
+                        <div class="accordion-body">
+                          <p>Реалізація 4 питання у блоці акордеону</p>
+                        </div>
+                      </div>
+                    </div>
+                <div class="accordion">
+                      <details class="accordion-details">
+                        <summary class="accordion-summary">
+                          <span >Питання 4</span>
+                        </summary>
+                      </details>
+                      <div class="accordion-content">
+                        <div class="accordion-body">
+                          <p>Реалізація 4 питання у блоці акордеону</p>
+                        </div>
+                      </div>
+                    </div>
+                <div class="accordion">
+                      <details class="accordion-details">
+                        <summary class="accordion-summary">
+                          <span >Питання 4</span>
+                        </summary>
+                      </details>
+                      <div class="accordion-content">
+                        <div class="accordion-body">
+                          <p>Реалізація 4 питання у блоці акордеону</p>
+                        </div>
+                      </div>
+                    </div>
+
+                 <div class="accordion">
+                      <details class="accordion-details">
+                        <summary class="accordion-summary">
+                          <span class="">Питання 4</span>
+                        </summary>
+                      </details>
+                      <div class="accordion-content">
+                        <div class="accordion-body">
+                          <p>Реалізація 4 питання у блоці акордеону</p>
+                        </div>
+                      </div>
+                    </div>
+
+                <div class="accordion">
+                      <details class="accordion-details">
+                        <summary class="accordion-summary">
+                          <span class="">Питання 4</span>
+                        </summary>
+                      </details>
+                      <div class="accordion-content">
+                        <div class="accordion-body">
+                          <p>Реалізація 4 питання у блоці акордеону</p>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        <div class="block-price">
+            <div class="title-section">
+                <p>Ціни</p>
+            </div>
+            <div class="container-price">
+                <div class="card-price">
+                    <div class="title-card pd-card">Групове тренування з ММА , будні дні</div>
+                    <div class="time-card pd-card">1,20 година тренування</div>
+                    <hr class="line-card">
+                    <br>
+                    <div class="price pd-card">
+                        <div class="price-main">
+                            <div>900 грн</div>
+                            <span>Разове</span>
+                        </div>
+                        <div class="price-mouth">
+                            <div>8000 грн</div>
+                            <span>Пакет з 10 занять</span>
+                        </div>
+                    </div>
+                    <hr class="line-card">
+                    <div class="cntnt-card">
+                        <ul>
+                            <li>Маєте перевагу у тренуванні</li>
+                            <li>Зможете індивідуально відпрацювати все що потрібно</li>
+                            <li>Обрати групу можна взалежнос і від віку та навичок</li>
+                        </ul>
+                    </div>
+                    <div class="current-card">
+                        <a href="">Обрати </a>
+                    </div>
+                </div>
+                <div class="card-price">
+                    <div class="title-card pd-card">Персональне тренування з бокс</div>
+                    <div class="time-card pd-card">1 година тренування</div>
+                    <hr class="line-card">
+                    <br>
+                    <div class="price pd-card">
+                        <div class="price-main">
+                            <div>950 грн</div>
+                            <span>Разове</span>
+                        </div>
+                        <div class="price-mouth">
+                            <div>8500 грн</div>
+                            <span>Пакет з 10 занять</span>
+                        </div>
+                    </div>
+                    <hr class="line-card">
+                    <div class="cntnt-card">
+                        <ul>
+                            <li>Маєте перевагу у тренуванні</li>
+                            <li>Зможете індивідуально відпрацювати все що потрібно</li>
+                        </ul>
+                    </div>
+                    <div class="current-card">
+                        <a href="">Обрати </a>
+                    </div>
+                </div>
+                <div class="card-price">
+                    <div class="title-card pd-card">Розслабляючі масажі</div>
+                    <div class="time-card pd-card">1,5 години релаксу</div>
+                    <hr class="line-card">
+                    <br>
+                    <div class="price pd-card">
+                        <div class="price-main">
+                            <div>750 грн</div>
+                            <span>Разове</span>
+                        </div>
+                        <div class="price-mouth">
+                            <div>7250 грн</div>
+                            <span>Пакет з 9 сеансів</span>
+                        </div>
+                    </div>
+                    <hr class="line-card">
+                    <div class="cntnt-card">
+                        <ul>
+                            <li>Розслаблені чани</li>
+                            <li>Відновлювальні масажі</li>
+                        </ul>
+                    </div>
+                    <div class="current-card">
+                        <a href="">Обрати </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ {% include 'includes/form.html' %}
+
+
+
 
 {% endblock %}
+
+
 
 {% block extra_js %}
 <!-- JS -->
     <script src="{% static 'elevix/js/logoanmt.js' %}"></script>
     <script src="{% static 'elevix/js/animation-scroll.js' %}" defer></script>
     <script src="{% static 'elevix/js/chart.js' %}" defer></script>
-    <script src="{% static 'elevix/js/slider.js' %}" defer></script>
-    <script src="{% static 'elevix/js/photo_edit_trener.js' %}" defer></script>
+    <script src="{% static 'elevix/js/treners.js' %}" defer></script>
+    <script src="{% static 'elevix/js/vidgyks.js' %}" defer></script>
+    <script src="{% static 'elevix/js/accordion.js' %}" defer></script>
+
+
+
 {% endblock %}

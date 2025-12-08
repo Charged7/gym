@@ -31,3 +31,80 @@ WARNING 2025-11-22 22:45:16,504 log 13460 2236 Forbidden (CSRF token from POST i
 WARNING 2025-11-22 22:49:02,921 log 6716 16248 Forbidden (CSRF token from POST incorrect.): /accounts/login/
 WARNING 2025-11-22 22:50:06,507 log 13964 21256 Forbidden (CSRF token from POST incorrect.): /accounts/login/
 WARNING 2025-11-22 22:51:21,869 log 10204 17764 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+ERROR 2025-12-04 21:29:00,182 exception 9296 9456 Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\G\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\G\venv\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "D:\G\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\G\venv\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+ERROR 2025-12-04 21:29:04,167 exception 9296 10412 Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\G\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\G\venv\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "D:\G\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\G\venv\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+ERROR 2025-12-04 21:29:04,810 exception 9296 16824 Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\G\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\G\venv\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "D:\G\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\G\venv\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+ERROR 2025-12-04 21:29:25,229 exception 9296 4588 Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\G\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\G\venv\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "D:\G\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\G\venv\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+ERROR 2025-12-04 21:29:25,579 exception 9296 20332 Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\G\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\G\venv\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "D:\G\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\G\venv\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+ERROR 2025-12-04 21:30:45,835 exception 9296 10060 Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\G\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\G\venv\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "D:\G\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\G\venv\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+ERROR 2025-12-04 21:30:46,364 exception 9296 15200 Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "D:\G\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\G\venv\Lib\site-packages\django\utils\deprecation.py", line 128, in __call__
+    response = self.process_request(request)
+  File "D:\G\venv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+  File "D:\G\venv\Lib\site-packages\django\http\request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '4ec2f86105b8.ngrok-free.app'. You may need to add '4ec2f86105b8.ngrok-free.app' to ALLOWED_HOSTS.

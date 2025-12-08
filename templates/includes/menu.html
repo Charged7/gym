@@ -5,12 +5,11 @@
     <link rel="stylesheet" href="{% static 'elevix/css/menu.css' %}">
 {% endblock %}
 
-<div class="menu_wrap">
+<header>
     <div class="container">
-        <!-- Верхня інформаційна панель -->
         <div class="section_info">
             <div class="block-phone">
-                <p>+380 97 790 9797</p>
+                <p> +380 97 790 9797 </p>
             </div>
             <div class="block-timetable">
                 <p>Пн-Пт: <span>8:00-21:00</span></p>
@@ -19,42 +18,37 @@
             </div>
             <div class="block-messegers">
                 <p>
-                    <a href="#"><i class="fab fa-telegram color-root"></i></a>
-                    <a href="#"><i class="fab fa-instagram color-root"></i></a>
-                    <a href="#"><i class="fab fa-viber color-root"></i></a>
+                    <a href="index.html"> <i class="fab fa-telegram color-root"></i></a>
+                    <a href="wfie.html"> <i class="fab fa-instagram color-root"></i></a>
                 </p>
             </div>
         </div>
 
-        <!-- Головне меню -->
         <div class="section_menu">
             <div class="logo_position">
-                <a href="{% url 'index' %}">
-                    <img class="logo_name" src="{% static 'elevix/images/logoanmt2.svg' %}" alt="Elevix">
-                </a>
+                <img class="logo_name" src="{% static 'elevix/images/logoanmt2.svg' %}">
             </div>
             <div class="block_menu">
-                <a href="{% url 'index' %}" class="menu_item">Головна</a>
-
-                <div class="menu_item block-dropdown-menu">
-                    Послуги та ціни <span>&#8595;</span>
+                <a class="menu_item" href="index.html">Головна</a>
+                <div class="menu_item block-dropdown-menu ">Послуги та ціни <img src="{% static 'elevix/images/menu-arrow.svg' %}" alt="">
                     <div class="dropdown-menu">
                         <ul>
-                            <li><a href="#">Спортивний зал</a></li>
-                            <li><a href="#">Бокс ММА</a></li>
-                            <li><a href="#">Відпочинок</a></li>
-                            <li><a href="#">Магазин</a></li>
-                            <li><a href="{% url 'elevix:trainers_list' %}">Тренери</a></li>
-                            <li><a href="#">Ціни</a></li>
+                            <li><a href="shablon.html?page=muika">Спортивний зал</a></li>
+                            <li><a href="shablon.html?page=vozk">Бокс ММА</a></li>
+                            <li><a href="shablon.html?page=chistka">Відпочинок</a></li>
+                            <li><a href="shablon.html?page=all">Ціни</a></li>
                         </ul>
                     </div>
                 </div>
-
-                <a class="menu_item" href="#">Контакти</a>
+                <a class="menu_item" href="contact.html">Тренери</a>
+                <a class="menu_item" href="contact.html">Контакти</a>
+                <a class="menu_item" href="contact.html">Магазин</a>
             </div>
             <div class="item_right">
-                <a href="{% url 'account_login' %}" class="btn_item">Увійти</a>
-                <div class="burger-menu" id="burger-menu">
+                <div class="btn_item">
+                    Увійти
+                </div>
+                <div class="burger-menu">
                     <span class="burg-line"></span>
                     <span class="burg-line"></span>
                     <span class="burg-line"></span>
@@ -62,66 +56,35 @@
             </div>
         </div>
     </div>
-</div>
+</header>
 
-<!-- Мобільне меню -->
-<div class="menu-right-side" id="mobile-menu">
+
+<div class="menu-right-side">
     <div class="container">
-        <div class="menu_item-smal-size">
-            <a href="{% url 'index' %}">Головна</a>
+        <div class="menu_item-smal-size"><a href="index.html"> Головна</a></div>
+        <div class="menu_item-smal-size drop">Послуги
+            <img src="{% static 'elevix/images/menu-arrow.svg' %}" alt="">
         </div>
-        <div class="menu_item-smal-size drop" id="mobile-services-btn">
-            Послуги <span class="errow">&#8595;</span>
-        </div>
-        <div class="dropdown-menu-small" id="mobile-services-menu">
+        <div class="dropdown-menu-small ">
             <ul>
-                <li><a href="#">Спортивний зал</a></li>
-                <li><a href="#">Бокс ММА</a></li>
-                <li><a href="#">Відпочинок</a></li>
-                <li><a href="#">Магазин</a></li>
-                <li><a href="{% url 'elevix:trainers_list' %}">Тренери</a></li>
-                <li><a href="#">Ціни</a></li>
+                <li><a href="shablon.html?page=muika">Спортивний зал</a></li>
+                <li><a href="shablon.html?page=vozk">Бокс ММА</a></li>
+                <li><a href="shablon.html?page=chistka">Відпочинок</a></li>
+                <li><a href="shablon.html?page=all">Ціни</a></li>
             </ul>
         </div>
-        <div class="menu_item-smal-size">
-            <a href="#">Контакти</a>
-        </div>
+        <div class="menu_item-smal-size"><a href="contact.html">Тренери</a></div>
+        <div class="menu_item-smal-size"><a href="contact.html">Контакти</a></div>
+        <div class="menu_item-smal-size"><a href="contact.html">Магазин</a></div>
         <div class="hr-line"></div>
         <br>
         <div class="menu_item-small-timetable">+38 097 790 79 97</div>
-        <div class="menu_item-small-timetable">Пн-Пт: <span>8:00-21:00</span></div>
-        <div class="menu_item-small-timetable">Сб: <span>8:00-19:00</span></div>
-        <div class="menu_item-small-timetable">Нд: <span>Вихідний</span></div>
+        <div class="menu_item-small-timetable">Пн-Пт: <span>  8:00-21:00 </span></div>
+        <div class="menu_item-small-timetable">Сб: <span>8:00-19:00</span> </div>
+        <div class="menu_item-small-timetable">Нд: <span>Вихідний</span> </div>
         <br>
         <div class="hr-line"></div>
     </div>
 </div>
 
-<!-- JavaScript -->
-<script>
-    // Бургер меню
-    const burgerMenu = document.getElementById('burger-menu');
-    const mobileMenu = document.getElementById('mobile-menu');
 
-    burgerMenu.addEventListener('click', function() {
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('active-menu');
-    });
-
-    // Dropdown в мобільному меню
-    const mobileServicesBtn = document.getElementById('mobile-services-btn');
-    const mobileServicesMenu = document.getElementById('mobile-services-menu');
-
-    mobileServicesBtn.addEventListener('click', function() {
-        mobileServicesMenu.classList.toggle('dropdown-menu-small-active');
-    });
-
-    // Закрити мобільне меню при кліку на посилання
-    const mobileLinks = document.querySelectorAll('.menu-right-side a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            burgerMenu.classList.remove('active');
-            mobileMenu.classList.remove('active-menu');
-        });
-    });
-</script>

@@ -1,59 +1,61 @@
-<!-- templates/includes/footer.html -->
 {% load static %}
 
 {% block extra_css %}
-    <link href="{% static 'css/footer.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'elevix/css/logoanmt.css' %}">
 {% endblock %}
 
+
 <footer>
-    <div>
-        <div>
-
-            <div>
-                <h5>MyApp</h5>
-                <p>A modern platform for managing your data. Secure, fast, convenient.</p>
-
-                <div>
-                    <a href="#"><i></i></a>
-                    <a href="#"><i></i></a>
-                    <a href="#"><i></i></a>
-                    <a href="#"><i></i></a>
+    <div class="container">
+        <div class="block-footer">
+            <div class="cntnt-footer">
+                <div class="item-footer">
+                    <p>Навігація</p>
+                    <ul>
+                        <li><a href="#">Головна</a></li>
+                        <li><a href="#">Тренери</a></li>
+                        <li><a href="#">Контакти</a></li>
+                        <li><a href="#">Магазин</a></li>
+                    </ul>
+                </div>
+                <div class="item-footer">
+                    <p>Послуги</p>
+                    <ul>
+                        <li><a href="#">Спортивний зал</a></li>
+                        <li><a href="#">Бокс та ММА</a></li>
+                        <li><a href="#">Відпочинок</a></li>
+                        <li><a href="#">Магазин</a></li>
+                    </ul>
+                </div>
+                <div class="item-footer">
+                       <p>Контактна інформація</p>
+                        <div class="item-contact"><span class="span-for-item">&#9742;</span>Мобільний зв'зяок
+                           <br>
+                           <span>+380 68 902 0918</span>
+                         </div>
+                         <div class="item-contact"> <i class="fab fa-telegram span-for-item"></i>Telegram
+                           <br>
+                           <span>Elevix_official</span>
+                         </div>
+                         <div class="item-contact"> <i class="fab fa-instagram span-for-item"></i>Instagram
+                           <br>
+                           <span>Elevix_official</span>
+                         </div>
+                         <div class="item-contact"> <i class="fas fa-map-marker-alt span-for-item"></i>Адреса
+                            <br>
+                            <span>м. Хмельницький, вул Кармелюка 15</span>
+                         </div>
                 </div>
             </div>
-
-            <div>
-                <h5>Quick Links</h5>
-                <ul>
-                    <li><a href="{% url 'elevix:index' %}">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#">Support</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h5>Contacts</h5>
-                <ul>
-                    <li>info@myapp.com</li>
-                    <li>+38 (XXX) XXX-XX-XX</li>
-                    <li>Khmelnytskyi, Ukraine</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <div>
-            <div>
-                <p>&copy; 2025 MyApp. All rights reserved.</p>
-            </div>
-            <div>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
+             <hr class="line-card">
+            <div class="last">
+                 <img class="logo_name" src="{% static 'elevix/images/logoanmt2.svg' %}">
+                  <div class="btn-up">Вгору</div>
             </div>
         </div>
-
     </div>
 </footer>
+
+
+
 

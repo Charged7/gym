@@ -8,7 +8,7 @@ cd назва-репо
 
 ### 2. Створіть віртуальне середовище
 python -m venv venv
-
+venv\Scripts\Activate.ps
 ### 3. Активуйте віртуальне середовище
 # Windows:
 venv\Scripts\activate
