@@ -251,59 +251,29 @@
             <div class="slider-container">
                 <div id="slider-track" class="slider-track_cntnt">
 
-
-                     <div class='state-wrapper' data-id='$id'>
-                            <a href='$link' class='state-card'>
-                                <div class='state-card-inner'>
-                                    <div class='block-content-trener'>
-                                        <div class='trainer-block-img'>
-                                            <img src="/static/elevix/images/photozal1.jpg" alt="">
-                                         </div>
-                                         <span>Антоненко Микола Васильович</span>
-                                         <p>Тренер з Боксу</p>
+                    {% for trainer in trainers %}
+                     <div class='state-wrapper' data-id='{{ trainer.id }}'>
+                         <a href="{% url 'elevix:trainer_detail' trainer.id %}" class='state-card'>
+                             <div class='state-card-inner'>
+                                <div class='block-content-trener'>
+                                    <div class='trainer-block-img'>
+                                        {% if trainer.photo %}
+                                        <img src="{{ trainer.photo.url }}" alt="{{ trainer.get_full_name }}">
+                                        {% else %}
+                                        <a href="">No trainer photo</a>
+                                        {% endif %}
                                     </div>
+                                     <span>{{ trainer.get_full_name }}</span>
+                                     <p>Тренер з {{ trainer.get_specialization_display }}</p>
                                 </div>
-                            </a>
-                        </div>
-                    <div class='state-wrapper' data-id='$id'>
-                            <a href='$link' class='state-card'>
-                                <div class='state-card-inner'>
-                                    <div class='block-content-trener'>
-                                        <div class='trainer-block-img'>
-                                            <img src="/static/elevix/images/photozal1.jpg" alt="">
-                                         </div>
-                                         <span>Антоненко Микола Васильович</span>
-                                         <p>Тренер з Боксу</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    <div class='state-wrapper' data-id='$id'>
-                            <a href='$link' class='state-card'>
-                                <div class='state-card-inner'>
-                                    <div class='block-content-trener'>
-                                        <div class='trainer-block-img'>
-                                            <img src="/static/elevix/images/photozal1.jpg" alt="">
-                                         </div>
-                                         <span>Антоненко Микола Васильович</span>
-                                         <p>Тренер з Боксу</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    <div class='state-wrapper' data-id='$id'>
-                            <a href='$link' class='state-card'>
-                                <div class='state-card-inner'>
-                                    <div class='block-content-trener'>
-                                        <div class='trainer-block-img'>
-                                            <img src="/static/elevix/images/photozal1.jpg" alt="">
-                                         </div>
-                                         <span>Антоненко Микола Васильович</span>
-                                         <p>Тренер з Боксу</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                            </div>
+                         </a>
+                     </div>
+                    {% empty %}
+                    <div class="no-trainers">
+                        <p>Наразі немає доступних тренерів</p>
+                    </div>
+                    {% endfor %}
 
                 </div>
             </div>
@@ -387,104 +357,24 @@
                 <span>+38 068 982 0943</span>
             </div>
             <div class="block-accordions">
+                {% for faq in faqs %}
                     <div class="accordion">
-                      <details class="accordion-details">
-                        <summary class="accordion-summary">
-                          <span>Питання 1</span>
-                        </summary>
-                      </details>
-                      <div class="accordion-content">
-                        <div class="accordion-body">
-                          <p>відповідь на питання 1 в розгортому вигляді</p>
+                        <details class="accordion-details">
+                            <summary class="accordion-summary">
+                                <span>{{ faq.question }}</span>
+                            </summary>
+                        </details>
+                        <div class="accordion-content">
+                            <div class="accordion-body">
+                                <p>{{ faq.answer|linebreaks }}</p>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                    <div class="accordion">
-                      <details class="accordion-details">
-                        <summary class="accordion-summary">
-                          <span >Питання 2</span>
-                        </summary>
-                      </details>
-                      <div class="accordion-content">
-                        <div class="accordion-body">
-                          <p>Дивимось питання 2</p>
-                        </div>
-                      </div>
+                    {% empty %}
+                    <div class="no-faqs">
+                        <p>Наразі питань немає. Додайте їх в адмін панелі.</p>
                     </div>
-                    <div class="accordion">
-                      <details class="accordion-details">
-                        <summary class="accordion-summary">
-                          <span >Питання 3</span>
-                        </summary>
-                      </details>
-                      <div class="accordion-content">
-                        <div class="accordion-body">
-                          <p>дивимось приклад питання 3, як воно реалізоване </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="accordion">
-                      <details class="accordion-details">
-                        <summary class="accordion-summary">
-                          <span >Питання 4</span>
-                        </summary>
-                      </details>
-                      <div class="accordion-content">
-                        <div class="accordion-body">
-                          <p>Реалізація 4 питання у блоці акордеону</p>
-                        </div>
-                      </div>
-                    </div>
-                <div class="accordion">
-                      <details class="accordion-details">
-                        <summary class="accordion-summary">
-                          <span >Питання 4</span>
-                        </summary>
-                      </details>
-                      <div class="accordion-content">
-                        <div class="accordion-body">
-                          <p>Реалізація 4 питання у блоці акордеону</p>
-                        </div>
-                      </div>
-                    </div>
-                <div class="accordion">
-                      <details class="accordion-details">
-                        <summary class="accordion-summary">
-                          <span >Питання 4</span>
-                        </summary>
-                      </details>
-                      <div class="accordion-content">
-                        <div class="accordion-body">
-                          <p>Реалізація 4 питання у блоці акордеону</p>
-                        </div>
-                      </div>
-                    </div>
-
-                 <div class="accordion">
-                      <details class="accordion-details">
-                        <summary class="accordion-summary">
-                          <span class="">Питання 4</span>
-                        </summary>
-                      </details>
-                      <div class="accordion-content">
-                        <div class="accordion-body">
-                          <p>Реалізація 4 питання у блоці акордеону</p>
-                        </div>
-                      </div>
-                    </div>
-
-                <div class="accordion">
-                      <details class="accordion-details">
-                        <summary class="accordion-summary">
-                          <span class="">Питання 4</span>
-                        </summary>
-                      </details>
-                      <div class="accordion-content">
-                        <div class="accordion-body">
-                          <p>Реалізація 4 питання у блоці акордеону</p>
-                        </div>
-                      </div>
-                    </div>
+                    {% endfor %}
             </div>
         </div>
     </div>
@@ -498,85 +388,56 @@
                 <p>Ціни</p>
             </div>
             <div class="container-price">
+                {% for service in services %}
                 <div class="card-price">
-                    <div class="title-card pd-card">Групове тренування з ММА , будні дні</div>
-                    <div class="time-card pd-card">1,20 година тренування</div>
+                    <div class="title-card pd-card">{{ service.name }}</div>
+                    <div class="time-card pd-card">
+                        {{ service.duration }}
+                        {% if service.duration == 1 %}
+                            година
+                        {% elif service.duration < 2 %}
+                            години
+                        {% else %}
+                            годин
+                        {% endif %}
+                        {% if service.category == 'massage' %}
+                            релаксу
+                        {% else %}
+                            тренування
+                        {% endif %}
+                    </div>
                     <hr class="line-card">
                     <br>
                     <div class="price pd-card">
-                        <div class="price-main">
-                            <div>900 грн</div>
-                            <span>Разове</span>
-                        </div>
-                        <div class="price-mouth">
-                            <div>8000 грн</div>
-                            <span>Пакет з 10 занять</span>
-                        </div>
+                        {% for plan in service.pricing_plans.all %}
+                            {% if plan.is_default %}
+                            <div class="price-main">
+                                <div>{{ plan.price|floatformat:0 }} грн</div>
+                                <span>{{ plan.name }}</span>
+                            </div>
+                            {% else %}
+                            <div class="price-mouth">
+                                <div>{{ plan.price|floatformat:0 }} грн</div>
+                                <span>{{ plan.name }}</span>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                     <hr class="line-card">
                     <div class="cntnt-card">
                         <ul>
-                            <li>Маєте перевагу у тренуванні</li>
-                            <li>Зможете індивідуально відпрацювати все що потрібно</li>
-                            <li>Обрати групу можна взалежнос і від віку та навичок</li>
+                            {% for feature in service.features.all %}
+                            <li>{{ feature.feature_text }}</li>
+                            {% endfor %}
                         </ul>
                     </div>
                     <div class="current-card">
-                        <a href="">Обрати </a>
+                        <a href="{% url 'elevix:booking_create' service.id %}">Обрати</a>
                     </div>
                 </div>
-                <div class="card-price">
-                    <div class="title-card pd-card">Персональне тренування з бокс</div>
-                    <div class="time-card pd-card">1 година тренування</div>
-                    <hr class="line-card">
-                    <br>
-                    <div class="price pd-card">
-                        <div class="price-main">
-                            <div>950 грн</div>
-                            <span>Разове</span>
-                        </div>
-                        <div class="price-mouth">
-                            <div>8500 грн</div>
-                            <span>Пакет з 10 занять</span>
-                        </div>
-                    </div>
-                    <hr class="line-card">
-                    <div class="cntnt-card">
-                        <ul>
-                            <li>Маєте перевагу у тренуванні</li>
-                            <li>Зможете індивідуально відпрацювати все що потрібно</li>
-                        </ul>
-                    </div>
-                    <div class="current-card">
-                        <a href="">Обрати </a>
-                    </div>
-                </div>
-                <div class="card-price">
-                    <div class="title-card pd-card">Розслабляючі масажі</div>
-                    <div class="time-card pd-card">1,5 години релаксу</div>
-                    <hr class="line-card">
-                    <br>
-                    <div class="price pd-card">
-                        <div class="price-main">
-                            <div>750 грн</div>
-                            <span>Разове</span>
-                        </div>
-                        <div class="price-mouth">
-                            <div>7250 грн</div>
-                            <span>Пакет з 9 сеансів</span>
-                        </div>
-                    </div>
-                    <hr class="line-card">
-                    <div class="cntnt-card">
-                        <ul>
-                            <li>Розслаблені чани</li>
-                            <li>Відновлювальні масажі</li>
-                        </ul>
-                    </div>
-                    <div class="current-card">
-                        <a href="">Обрати </a>
-                    </div>
-                </div>
+                {% empty %}
+                <p>Наразі послуги відсутні</p>
+                {% endfor %}
             </div>
         </div>
     </div>

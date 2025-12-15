@@ -5,11 +5,27 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 
 from .forms import ProfileEditForm
-from .models import Trainer
+from .models import Trainer, Service, FAQ
+
 
 def index(request):
+    """Головна сторінка з тренерами та послугами"""
     trainers = Trainer.objects.all()
-    return render(request, "index.html", {"trainers": trainers})
+    services = Service.objects.filter(
+        is_active=True
+    ).prefetch_related(
+        'pricing_plans',
+        'features'
+    ).order_by('id')
+
+    faqs = FAQ.objects.filter(is_active=True).order_by('sort_order', 'id')
+
+    return render(request, "index.html", {
+        "trainers": trainers,
+        "services": services,
+        "faqs": faqs,
+    })
+
 
 def trainers_list(request):
     """Список всіх тренерів"""
@@ -17,16 +33,31 @@ def trainers_list(request):
     print(f"Кількість тренерів: {trainers.count()}")
     return render(request, 'elevix/trainers_list.html', {'trainers': trainers})
 
+
 def trainer_detail(request, pk):
     """Детальна сторінка тренера"""
     trainer = get_object_or_404(Trainer, pk=pk)
-    return render(request, 'elevix/trainer_detail.html', {'trainer': trainer})
+
+    # Отримуємо послуги цього тренера
+    services = trainer.services.filter(is_active=True)
+
+    # Отримуємо розклад цього тренера
+    schedules = trainer.schedules.filter(is_active=True).order_by('day_of_week', 'start_time')
+
+    context = {
+        'trainer': trainer,
+        'services': services,
+        'schedules': schedules,
+    }
+    return render(request, 'elevix/trainer_detail.html', context)
+
 
 @login_required(login_url='account_login')
 def profile(request):
     """Профіль користувача з захистом авторизації"""
     user = request.user
     return render(request, "elevix/profile.html", {"user": user})
+
 
 @login_required(login_url='account_login')
 def profile_edit(request):
@@ -42,8 +73,17 @@ def profile_edit(request):
 
     return render(request, 'elevix/profile_edit.html', {'form': form, 'user': request.user})
 
+
 def logout_view(request):
     """Вихід із системи"""
     auth_logout(request)
     messages.success(request, "Ви успішно вийшли з системи.")
     return redirect("account_login")
+
+
+@login_required(login_url='account_login')
+def booking_create(request, service_id):
+    """Створення бронювання послуги"""
+    service = get_object_or_404(Service, pk=service_id, is_active=True)
+    # Тут буде логіка створення бронювання
+    return render(request, 'elevix/booking_create.html', {'service': service})
