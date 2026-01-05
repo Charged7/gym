@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import os
 from datetime import timedelta
 from pathlib import Path
+
 from decouple import config, Csv
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -46,10 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    "debug_toolbar",
-    'elevix',
-    'authentication',
 
+    'elevix',
+    # 'elevix.apps.ElevixConfig',
+
+    "debug_toolbar",
+    'authentication',
     'phonenumber_field',
 
     # django-allauth
@@ -94,15 +99,12 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# PostgreSQL конфигурация
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'CONN_MAX_AGE': 0,
-        'OPTIONS': {
-            'timeout': 20,
-        }
-    }
+    'default': dj_database_url.config(
+        default='postgresql://postgres:fbuKqeTciTuWvGYMTLxZUymycQxPtRMh@trolley.proxy.rlwy.net:23690/railway',
+        conn_max_age=600
+    )
 }
 
 
@@ -191,8 +193,8 @@ SITE_ID = 1
 
 # Методы аутентификации
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_LOGIN_METHODS = {'email'}
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None  # 🔥 Це вимикає username
 ACCOUNT_UNIQUE_EMAIL = True
 
