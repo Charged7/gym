@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    container_name: django_app
+    volumes:
+      - ./src:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    command: >
+      bash -c "
+      echo '========================================';
+      echo 'OPEN SITE: http://127.0.0.1:8000/';
+      echo '========================================';
+      python manage.py migrate --noinput;
+      python manage.py collectstatic --noinput --clear || true;
+      python manage.py runserver 0.0.0.0:8000
+      "

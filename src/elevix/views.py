@@ -1,8 +1,10 @@
-import logging
-from django.shortcuts import render, redirect, get_object_or_404
+from decouple import config
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import ProfileEditForm
 from .models import Trainer, Service, FAQ
@@ -87,3 +89,14 @@ def booking_create(request, service_id):
     service = get_object_or_404(Service, pk=service_id, is_active=True)
     # Тут буде логіка створення бронювання
     return render(request, 'elevix/booking_create.html', {'service': service})
+
+
+def env_test_view(request):
+    if not settings.DEBUG:
+        return JsonResponse({'error': 'This view is only available in DEBUG mode.'})
+
+    return JsonResponse({
+        "EMAIL_HOST_USER": config("EMAIL_HOST_USER"),
+        "DEBUG_MODE": settings.DEBUG,
+        "SECRET_KEY_FIRST_5": config("SECRET_KEY")[:5] + "*****",
+    })

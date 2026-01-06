@@ -1,7 +1,7 @@
 from django import forms
 from allauth.account.forms import SignupForm
 from phonenumber_field.formfields import PhoneNumberField
-from elevix.models import GymUser
+from src.elevix.models import GymUser
 
 
 class CustomSignupForm(SignupForm):

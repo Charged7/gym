@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from elevix.models import FAQ
+from src.elevix.models import FAQ
 
 
 class Command(BaseCommand):
